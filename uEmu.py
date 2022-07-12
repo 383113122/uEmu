@@ -1420,6 +1420,7 @@ class uEmuUnicornEngine(object):
             if self.extended:
                 for idx, val in enumerate(cpuContext.items[regs_len:]):
                     self.mu.reg_write(reg_ext_map[idx][1], int(val[1], 0))
+            self.fix_context = self.mu.context_save()
             return True
         else:
             return False
